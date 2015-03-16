@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TestSupport</string>
+    <string name="title_activity_authentication">AuthenticationActivity</string>
+
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="signin">Sign In</string>
+</resources>
