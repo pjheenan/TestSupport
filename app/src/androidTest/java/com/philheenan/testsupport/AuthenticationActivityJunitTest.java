@@ -35,4 +35,10 @@ public class AuthenticationActivityJunitTest extends ActivityInstrumentationTest
         Assert.assertTrue(true);
     }
 
+    @Test
+    public void testUsernameValidator() {
+        assertFalse(((LoginView)getActivity().findViewById(R.id.signinView)).validateUsername("username"));
+        assertTrue(((LoginView)getActivity().findViewById(R.id.signinView)).validateUsername("username@test"));
+    }
+
 }

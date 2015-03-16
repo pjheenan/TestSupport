@@ -20,9 +20,6 @@ import rx.android.schedulers.AndroidSchedulers;
  */
 public class LoginView extends LinearLayout implements LoginViewModel {
 
-//    @Inject
-//    LoginPresenter presenter;
-
     @InjectView(R.id.username)
     EditText username;
     @InjectView(R.id.password)
@@ -88,6 +85,10 @@ public class LoginView extends LinearLayout implements LoginViewModel {
         progressLayout.setVisibility(showLoading ? View.VISIBLE : View.GONE);
     }
 
+    boolean validateUsername(String username) {
+        return username.contains("@");
+    }
+
     void init() {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(R.layout.signin_view, this, true);
@@ -97,7 +98,7 @@ public class LoginView extends LinearLayout implements LoginViewModel {
         this.signInButton.setEnabled(false);
     }
 
-    @OnTextChanged({ R.id.username, R.id.password})
+    @OnTextChanged({R.id.username, R.id.password})
     void onTextChanged(CharSequence s) {
         presenter.textUpdate();
     }
